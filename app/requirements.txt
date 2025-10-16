@@ -1,0 +1,4 @@
+# requirements.txt for FastAPI app
+fastapi
+uvicorn
+pytest
