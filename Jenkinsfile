@@ -53,6 +53,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
+                    apt-get update && apt-get install -y git
                     git config user.email "bhargava@gmail.com"
                     git config user.name "bhargavagoli"
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" k8s/deployment.yaml
