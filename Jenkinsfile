@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'bhargavagoli/dockercli-sonarqube:latest'
+            image 'bhargavagoli/docker-sonarqube-git:latest'
             args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
