@@ -42,7 +42,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-cred', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                 sh '''
-                    docker build -t ${DOCKER_IMAGE} -f docker/Dockerfile .
+                    docker build -t ${DOCKER_IMAGE} .
                     echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
                     docker push ${DOCKER_IMAGE}
                 '''
