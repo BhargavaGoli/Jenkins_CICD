@@ -55,8 +55,8 @@ pipeline {
                 sh '''
                     git config user.email "bhargava@gmail.com"
                     git config user.name "bhargavagoli"
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" Jenkins_CICD/k8s/deployment.yaml
-                    git add Jenkins_CICD/k8s/deployment.yaml
+                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" k8s/deployment.yaml
+                    git add k8s/deployment.yaml
                     git commit -m "Update deployment to ${DOCKER_IMAGE}"
                     git push https://${GITHUB_TOKEN}@github.com/BhargavaGoli/Jenkins_CICD.git HEAD:main
                 '''
